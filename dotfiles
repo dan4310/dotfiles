@@ -50,7 +50,23 @@ mk_dirs () {
 }
 
 clean () {
-	echo "clean"
+	dirs=$(find . -type d | cut -c3- | grep -v ".git*\|^dotfiles$")
+
+	for dir in ${dirs[@]}; do
+		if [ -e $dir ] && [[ ! ${DIRS[*]} =~ $dir ]]; then
+			rm -rf $dir
+			echo "Deleted directory: $dir"
+		fi
+	done
+
+	files=$(find . -type f | cut -c3- | grep -v ".git*\|^dotfiles$")
+
+	for file in ${files[@]}; do
+		if [ -e $file ] && [[ ! ${FILES[*]} =~ $file ]]; then
+			rm -f $file
+			echo "Deleted file: $file"
+		fi
+	done
 }
 
 update () {
