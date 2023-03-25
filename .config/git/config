@@ -1,0 +1,10 @@
+[alias]
+	co = checkout
+	ci = commit
+	br = branch
+	st = status
+[user]
+	email = dan4310@gmail.com
+	name = Daniel Mark Courtney
+[init]
+	defaultBranch = master

@@ -1,0 +1,118 @@
+#!/bin/sh
+
+SRCDIR="$HOME"
+CONFIG_DIRS=(bash git lf nvim shell x11 zsh)
+LINK_DIRS=(".local/bin/statusbar")
+for i in ${CONFIG_DIRS[@]}; do
+	LINK_DIRS+=(".config/$i")
+done
+LINK_FILES=(.fehbg)
+
+FILES=()
+DIRS=()
+
+fill_src () {
+	for dir in ${LINK_DIRS[@]}; do
+		local files=$(find "$SRCDIR/$dir" -type f)
+		for file in ${files[@]}; do
+			local prefix="$SRCDIR/"
+			local suffix=${file#"$prefix"}
+			FILES+=($suffix)
+		done
+		
+		local dirs=$(find "$SRCDIR/$dir" -type d)
+		for dir in ${dirs[@]}; do
+			local prefix="$SRCDIR/"
+			local suffix=${dir#"$prefix"}
+			DIRS+=($suffix)
+		done
+	done
+
+	for file in ${LINK_FILES[@]}; do
+		FILES+=($file)
+	done
+
+	for dir in ${LINK_DIRS[@]}; do
+		DIRS+=($dir)
+	done
+}
+
+fill_src
+
+# $1: directory to make link dirs
+mk_dirs () {
+	for dir in ${DIRS[@]}; do
+		if [ ! -e "$1/$dir" ]; then
+			mkdir -p "$1/$dir"
+			echo "Created direcotry: $1/$dir"
+		fi
+	done
+}
+
+clean () {
+	echo "clean"
+}
+
+update () {
+	mk_dirs .
+	for file in ${FILES[@]}; do
+		local f="$SRCDIR/$file"
+		if [ -e $f ]; then
+			if [ -e $file ]; then
+				cp -f $f $file
+				echo "Updated file: $file"
+			else	
+				cp $f $file
+				echo "Created file: $file"
+			fi
+		else
+			echo "Failed to find file: $f"
+		fi
+	done
+}
+
+help () {
+	echo "- dotfiles update"
+	echo "  updates the files currently in this repository with $SRCDIR"
+	echo ""
+
+	echo "- dotfiles clean"
+	echo "  cleans $SRCDIR"
+	echo ""
+}
+
+print_files () {
+	for i in ${FILES[@]}; do
+		echo $i
+	done
+}
+
+debug () {
+	echo "debug"
+}
+
+case $1 in
+	"update")
+		update
+		;;
+	"clean")
+		clean	
+		;;
+	"print")
+		print_files
+		;;
+	"d")
+		debug
+		;;
+	"-h")
+		help
+		;;
+	"--help")
+		help	
+		;;
+	*)
+		echo "Comand was not recognized. Try 'dotfiles [-h|--help]'"
+		help
+		;;
+esac
+
