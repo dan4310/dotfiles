@@ -4,14 +4,18 @@
 !! Set a default font and font size as below:
 *.font: monospace:size=10
 
+*.blinktimeout: 600
+
+*.cursorColor: #F8F8F2
+
 !! DWM specific
 *.dmenufont: monospace:size=10
-*.normbordercolor: #FF79C6 
 *.normbgcolor: #282A36
 *.normfgcolor: #F8F8F2
 *.selbgcolor: #BD93F9 
-*.selbordercolor: #8BE9FD 
-*.selfgcolor: #F1FA8C 
+*.selfgcolor: #F1FA8C
+*.selbordercolor: #FF5555
+*.normbordercolor: #8BE9FD
 *.borderpx: 2
 *.topbar: 10
 
@@ -145,8 +149,6 @@
 /* *.background:   #000000 */
 
 /* ! Dracula Xresources palette */
-*.foreground: #F8F8F2
-*.background: #282A36
 *.color0:     #000000
 *.color8:     #4D4D4D
 *.color1:     #FF5555
@@ -163,9 +165,9 @@
 *.color14:    #9AEDFE
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
+*.background: #F8F8F2
+*.foreground: #282A36
 
-/* *.background: .color0 */
-*.color256: 0#1d2021 
-*.color257: 15#ebdbb2
-
+/* * .color256: #F8F8F2 */
+/* *.color257: 15#ebdbb2 */
 
