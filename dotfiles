@@ -1,15 +1,16 @@
 #!/bin/sh
 
 SRCDIR="$HOME"
+# These dirs include ALL the files contained
 CONFIG_DIRS=(bash git lf nvim shell x11 zsh)
 LINK_DIRS=(".local/bin/statusbar")
 for i in ${CONFIG_DIRS[@]}; do
 	LINK_DIRS+=(".config/$i")
 done
-LINK_FILES=(.fehbg)
+LINK_FILES=(.fehbg .config/mpd/mpd.conf .config/ncmpcpp/config)
 
 FILES=()
-DIRS=()
+DIRS=(.config/mpd .config/ncmpcpp)
 
 fill_src () {
 	for dir in ${LINK_DIRS[@]}; do
@@ -50,7 +51,7 @@ mk_dirs () {
 }
 
 clean () {
-	dirs=$(find . -type d | cut -c3- | grep -v ".git*\|^dotfiles$")
+	dirs=$(find . -type d | cut -c3- | grep -v ".git*\|^dotfiles$\|^README.md$")
 
 	for dir in ${dirs[@]}; do
 		if [ -e $dir ] && [[ ! ${DIRS[*]} =~ $dir ]]; then
@@ -59,7 +60,7 @@ clean () {
 		fi
 	done
 
-	files=$(find . -type f | cut -c3- | grep -v ".git*\|^dotfiles$")
+	files=$(find . -type f | cut -c3- | grep -v ".git*\|^dotfiles$\|^README.md$")
 
 	for file in ${files[@]}; do
 		if [ -e $file ] && [[ ! ${FILES[*]} =~ $file ]]; then
