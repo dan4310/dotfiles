@@ -100,9 +100,9 @@ visualizer_in_stereo = yes
 ##
 visualizer_type = spectrum
 #
-#visualizer_fps = 60
+visualizer_fps = 60
 #
-#visualizer_autoscale = no
+visualizer_autoscale = yes
 #
 visualizer_look = ●▮
 #
@@ -110,7 +110,7 @@ visualizer_look = ●▮
 #
 ## Alternative subset of 256 colors for terminals that support it.
 ##
-#visualizer_color = 47, 83, 119, 155, 191, 227, 221, 215, 209, 203, 197, 161
+visualizer_color = 47, 83, 119, 155, 191, 227, 221, 215, 209, 203, 197, 161
 #
 ##
 ## Note: The next few visualization options apply to the spectrum visualizer.
