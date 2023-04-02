@@ -1,8 +1,6 @@
 #!/bin/sh
 
-free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g
+memory=$(free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g)
+icon="󰍛"
 
-case $BUTTON in 
-	1) notify-send "CPU usage" "$(ps axch -o cmd,%cpu --sort=-%cpu | head)" ;;
-	3) st -e htop ;;
-esac
+echo "$icon $memory"

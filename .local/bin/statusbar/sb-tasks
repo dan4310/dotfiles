@@ -7,6 +7,7 @@
 # This block displays the number running background tasks.  Requires tsp.
 
 num=$(ps -ely | wc -l)
+icon=""
 
 # Handle mouse clicks
 case $BLOCK_BUTTON in
@@ -17,4 +18,4 @@ case $BLOCK_BUTTON in
 esac
 
 [ "$num" != "0" ] &&
-	echo "🤖$num"
+	echo "$icon $num"

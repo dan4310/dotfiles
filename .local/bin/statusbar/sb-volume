@@ -1,0 +1,18 @@
+#!/bin/bash
+
+VOLUME=$(vol get)
+VOLUME=${VOLUME::-1}
+
+WIFIICON=󰕾
+
+ON=$(amixer get Master | awk -F" " '/Mono:/ { print $6 }')
+
+if [ $ON == "[off]" ]; then
+	WIFIICON=󰝟
+elif [ $VOLUME -lt 20 ]; then
+	WIFIICON=󰕿
+elif [ $VOLUME -lt 60 ]; then
+	WIFIICON=󰖀
+fi
+
+echo "$WIFIICON $VOLUME%"
