@@ -1,0 +1,5 @@
+#!/bin/bash
+icon=
+temp=$(sensors -f | awk '/Package id 0:/ { print $4 }' | sed 's/+//')
+
+echo "$icon $temp"

@@ -2,7 +2,8 @@
 *.alpha: 0.8
 
 !! Set a default font and font size as below:
-*.font: monospace:size=10
+*.font: monospace:size=10:antialias=true
+dwm.font: Hack:size=10:style=Bold:antialias=true
 
 *.blinktimeout: 600
 
