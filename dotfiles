@@ -7,7 +7,7 @@ LINK_DIRS=(".local/bin/statusbar")
 for i in ${CONFIG_DIRS[@]}; do
 	LINK_DIRS+=(".config/$i")
 done
-LINK_FILES=(.fehbg .config/mpd/mpd.conf .config/ncmpcpp/config)
+LINK_FILES=(.fehbg .config/mpd/mpd.conf .config/ncmpcpp/config .local/bin/vol)
 
 FILES=()
 DIRS=(.config/mpd .config/ncmpcpp)

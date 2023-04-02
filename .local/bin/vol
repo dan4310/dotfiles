@@ -1,0 +1,58 @@
+#!/bin/sh
+
+VOL_INC=5
+
+vol_up () {
+	amixer -q set Master $VOL_INC%+ unmute
+	pkill -RTMIN+10 dwmblocks
+}
+
+vol_down () {
+	amixer -q set Master $VOL_INC%- unmute
+	pkill -RTMIN+10 dwmblocks
+}
+
+vol_mute () {
+	amixer -q set Master toggle
+	pkill -RTMIN+10 dwmblocks
+}
+
+vol_set () {
+	amixer -q set Master "$1%" unmute
+	pkill -RTMIN+10 dwmblocks
+}
+
+vol_get () {
+	awk -F"[][]" '/dB/ { print $2 }' <(amixer get Master)
+}
+
+vol_help () {
+	echo "--help: display information about this command"
+	echo "- up increases volume by $VOL_INC%"
+	echo "- down decreases volume by $VOL_INC%"
+	echo "- set: sets volume to given percentage %"
+	echo "- get: gets the volume percentage"
+	echo "- mute: mutes the volume"
+}
+
+case $1 in 
+	"up")
+		vol_up
+		;;
+	"down")
+		vol_down
+		;;
+	"set")
+		vol_set $2
+		;;
+	"get")
+		vol_get
+		;;
+	"mute")
+		vol_mute
+		;;
+	*)
+		echo "Command not recognized: $1"
+		vol_help
+		;;
+esac
