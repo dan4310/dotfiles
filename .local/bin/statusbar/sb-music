@@ -1,0 +1,12 @@
+#!/bin/bash
+
+song=$(ncmpcpp -q --current-song="%a - %t")
+icon="󰝚 "
+
+if [ "$song" = " - " ]; then
+	song=$(ncmpcpp -q --current-song="%f")
+fi
+
+if [ ! "$song" = "" ]; then
+	echo "$icon $song"
+fi
