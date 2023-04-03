@@ -1,0 +1,20 @@
+set folder = "imaps://imap.gmail.com"
+set spoolfile = "imaps://imap.gmail.com/INBOX"
+set record = "imaps://imap.gmail.com/[Gmail]/Sent"
+set trash = "imaps://imap.gmail.com/[Gmail]/Trash"
+set postponed = "imaps://imap.gmail.com/[Gmail]/Drafts"
+
+set from = "dan4310@gmail.com"
+set realname = "Daniel Courtney"
+
+set imap_user = "dan4310@gmail.com"
+
+set smtp_url = "smtp://dan4310@smtp.gmail.com:587/"
+
+set sidebar_visible = yes 
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+
+mailboxes =INBOX =Sent =Trash =Drafts
+
+source colors.muttrc

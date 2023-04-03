@@ -2,7 +2,7 @@
 
 SRCDIR="$HOME"
 # These dirs include ALL the files contained
-CONFIG_DIRS=(bash git lf nvim shell x11 zsh mpd)
+CONFIG_DIRS=(bash git lf nvim shell x11 zsh mpd mutt)
 LINK_DIRS=(".local/bin/statusbar")
 for i in ${CONFIG_DIRS[@]}; do
 	LINK_DIRS+=(".config/$i")
