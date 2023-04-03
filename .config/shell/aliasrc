@@ -20,5 +20,3 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	p="pacman" \
-
-alias lf="lfub"

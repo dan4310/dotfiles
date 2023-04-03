@@ -1,0 +1,7 @@
+#!/bin/bash
+
+dir=$(find $HOME -type d ! -path '*/.*' 2> /dev/null | dmenu -p "Open Directory")
+echo $dir
+if [ ! dir == "" ]; then
+	st -e lf $dir
+fi
