@@ -5,14 +5,21 @@ Daniel Courtney's dotfiles repo.
 ===Not yet implemented===
 
 Copys all linked files from this repo to `$SRCDIR`.
+Replace `$SRCDIR` with the value you used in the `dotfiles` script.
 
 ```
 ./dotfiles install
 ```
 
+### Xorg
+You may want to link your `.xprofile` after installing.
+
+```
+ln -s $SRCDIR/.config/x11/xprofile $SRCDIR/.xprofile
+```
+
 ### Bash
 You may want to link your `.bashrc` and `.bash_profile` after installing.
-Replace `$SRCDIR` with the value you used in the `dotfiles` script.
 
 ```
 ln -s $SRCDIR/.config/bash/bashrc $SRCDIR/.bashrc 
@@ -21,7 +28,6 @@ ln -s $SRCDIR/.config/shell/profile $SRCDIR/.bash_profile
 
 ### Zsh 
 You may want to link your `.zshrc` and `.zprofile` after installing.
-Replace `$SRCDIR` with the value you used in the `dotfiles` script.
 
 ```
 ln -s $SRCDIR/.config/zsh/zshrc $SRCDIR/.zshrc 
