@@ -20,3 +20,6 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	p="pacman" \
+	ll="ls -alh" \
+	lf="lfub" \
+	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport" 
