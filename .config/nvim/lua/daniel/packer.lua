@@ -13,9 +13,7 @@ return require('packer').startup(function(use)
   use({
 	'navarasu/onedark.nvim',
 	as = 'onedark',
-	config = function()
-		vim.cmd('colorscheme onedark')
-	end
+
   }) 
 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
@@ -43,9 +41,19 @@ return require('packer').startup(function(use)
     }
   }
 	use {
-	  'nvim-lualine/lualine.nvim',
-	  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+	  "nvim-lualine/lualine.nvim",
+		requires = {
+    	    "nvim-tree/nvim-web-devicons",
+    	    "meuter/lualine-so-fancy.nvim",
+    	},
 	}
 
 	use 'norcalli/nvim-colorizer.lua'
+
+	use { 
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			{ 'nvim-tree/nvim-web-devicons' }, -- Optional icons
+		}
+	}
 end)

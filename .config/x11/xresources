@@ -150,30 +150,54 @@ dwm.font: Hack:size=10:style=Bold:antialias=true
 /* *.background:   #000000 */
 
 /* ! Dracula Xresources palette */
-*.color0:     #000000
-*.color8:     #4D4D4D
-*.color1:     #FF5555
-*.color9:     #FF6E67
-*.color2:     #50FA7B
-*.color10:    #5AF78E
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
-*.color4:     #BD93F9
-*.color12:    #CAA9FA
-*.color5:     #FF79C6
-*.color13:    #FF92D0
-*.color6:     #8BE9FD
-*.color14:    #9AEDFE
-*.color7:     #BFBFBF
-*.color15:    #E6E6E6
-*.background: #F8F8F2
-*.foreground: #282A36
-*.normbgcolor: #1d2021
-*.normfgcolor: #F8F8F2
-*.selbgcolor: #BD93F9 
-*.selfgcolor: #F1FA8C
-*.selbordercolor: #FF5555
-*.normbordercolor: #8BE9FD
+! *.color0:     #000000
+! *.color8:     #4D4D4D
+! *.color1:     #FF5555
+! *.color9:     #FF6E67
+! *.color2:     #50FA7B
+! *.color10:    #5AF78E
+! *.color3:     #F1FA8C
+! *.color11:    #F4F99D
+! *.color4:     #BD93F9
+! *.color12:    #CAA9FA
+! *.color5:     #FF79C6
+! *.color13:    #FF92D0
+! *.color6:     #8BE9FD
+! *.color14:    #9AEDFE
+! *.color7:     #BFBFBF
+! *.color15:    #E6E6E6
+! *.background: #F8F8F2
+! *.foreground: #282A36
+! *.normbgcolor: #1d2021
+! *.normfgcolor: #F8F8F2
+! *.selbgcolor: #BD93F9 
+! *.selfgcolor: #F1FA8C
+! *.selbordercolor: #FF5555
+! *.normbordercolor: #8BE9FD
+
+/* !! One Dark : */
+*.color0: #1E2127 
+*.color1: #E06C75 
+*.color2: #98C379 
+*.color3: #D19A66 
+*.color4: #61AFEF 
+*.color5: #C678DD 
+*.color6: #56B6C2 
+*.color7: #ABB2BF 
+*.color8: #5C6370 
+*.color9: #E06C75 
+*.color10: #98C379
+*.color11: #D19A66
+*.color12: #61AFEF
+*.color13: #C678DD
+*.color14: #56B6C2
+*.color15: #FFFFFF
+*.normbgcolor: #1E2127
+*.normfgcolor: #ABB2BF
+*.selbgcolor: #C678DD
+*.selfgcolor: #FFFFFF
+*.selbordercolor: #E06C75
+*.normbordercolor: #D19A66
 
 
 /* * .color256: #F8F8F2 */
