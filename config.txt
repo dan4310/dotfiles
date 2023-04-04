@@ -1,0 +1,16 @@
+.local/bin/vol
+.local/bin/open
+.local/bin/explore
+.local/bin/lfub
+.fehbg
+.config/ncmpcpp/config
+.local/bin/statusbar
+.config/bash
+.config/git
+.config/lf
+.config/nvim
+.config/shell
+.config/x11
+.config/zsh
+.config/mpd
+.config/mutt

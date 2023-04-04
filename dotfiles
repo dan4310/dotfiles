@@ -1,135 +1,92 @@
 #!/bin/sh
 
-SRCDIR="$HOME"
-# These dirs include ALL the files contained
-CONFIG_DIRS=(bash git lf nvim shell x11 zsh mpd mutt)
-LINK_DIRS=(".local/bin/statusbar")
-for i in ${CONFIG_DIRS[@]}; do
-	LINK_DIRS+=(".config/$i")
-done
-LINK_FILES=(.fehbg .config/ncmpcpp/config .local/bin/vol .local/bin/open .local/bin/explore .local/bin/lfub)
+HOMEDIR="$HOME"
+SRCDIR="$HOME/.local/share/dotfiles"
+CONFIG_FILES=$(cat "$SRCDIR/config.txt")
 
-FILES=()
-DIRS=(.config/mpd .config/ncmpcpp)
+setPath=${DOTFILES_DATA_HOME}
+if [ -z setPath ]; then
+	SRCDIR=$setPath
+fi
 
-fill_src () {
-	for dir in ${LINK_DIRS[@]}; do
-		local files=$(find "$SRCDIR/$dir" -type f)
-		for file in ${files[@]}; do
-			local prefix="$SRCDIR/"
-			local suffix=${file#"$prefix"}
-			FILES+=($suffix)
+function copy_file() {
+	local dir=$(dirname $2)
+	if [ ! -d $dir ]; then
+		mkdir -p $dir
+		echo "Created directory $dir"
+	fi
+	if [ -f $2 ]; then
+		echo "Updated file $2"
+	else
+		echo "Copied file $2"
+	fi
+	cp -f $1 $2	
+}
+
+function update() {
+	for file in ${CONFIG_FILES[@]}; do
+		local files=$(find "$HOMEDIR/$file" -type f)
+		for f in ${files[@]}; do
+			local fname="$SRCDIR/${f/$HOMEDIR\//}"
+			copy_file $f $fname
 		done
-		
-		local dirs=$(find "$SRCDIR/$dir" -type d)
-		for dir in ${dirs[@]}; do
-			local prefix="$SRCDIR/"
-			local suffix=${dir#"$prefix"}
-			DIRS+=($suffix)
-		done
-	done
-
-	for file in ${LINK_FILES[@]}; do
-		FILES+=($file)
-	done
-
-	for dir in ${LINK_DIRS[@]}; do
-		DIRS+=($dir)
 	done
 }
 
-fill_src
-
-# $1: directory to make link dirs
-mk_dirs () {
-	for dir in ${DIRS[@]}; do
-		if [ ! -e "$1/$dir" ]; then
-			mkdir -p "$1/$dir"
-			echo "Created direcotry: $1/$dir"
-		fi
+function clean() {
+	local files=()	
+	for file in ${CONFIG_FILES[@]}; do
+		local fs=$(find "$SRCDIR/$file")
+		files+=(${fs[@]})
 	done
-}
-
-clean () {
-	dirs=$(find . -type d | cut -c3- | grep -v ".git*\|^dotfiles$\|^README.md$")
-
-	for dir in ${dirs[@]}; do
-		if [ -e $dir ] && [[ ! ${DIRS[*]} =~ $dir ]]; then
-			rm -rf $dir
-			echo "Deleted directory: $dir"
-		fi
-	done
-
-	files=$(find . -type f | cut -c3- | grep -v ".git*\|^dotfiles$\|^README.md$")
-
-	for file in ${files[@]}; do
-		if [ -e $file ] && [[ ! ${FILES[*]} =~ $file ]]; then
-			rm -f $file
-			echo "Deleted file: $file"
-		fi
-	done
-}
-
-update () {
-	mk_dirs .
-	for file in ${FILES[@]}; do
-		local f="$SRCDIR/$file"
-		if [ -e $f ]; then
-			if [ -e $file ]; then
-				cp -f $f $file
-				echo "Updated file: $file"
-			else	
-				cp $f $file
-				echo "Created file: $file"
+	
+	local check_files=$(find $SRCDIR '(' -not -name "dotfiles" ')' -a '(' -not -name README.md ')' -a '(' -not -name config.txt ')' -a '(' -not -path "\/*.git*" ')')
+	for f in ${check_files[@]}; do
+		if [[ ! ${files[@]} =~ $f && -e $f ]]; then
+			if [ -d $f ]; then
+				rm -r $f
+				echo "Deleted directory $f"
+			else
+				rm $f
+				echo "Deleted file $f"
 			fi
-		else
-			echo "Failed to find file: $f"
 		fi
 	done
 }
 
-help () {
-	echo "- dotfiles update"
-	echo "  updates the files currently in this repository with $SRCDIR"
-	echo ""
-
-	echo "- dotfiles clean"
-	echo "  cleans $SRCDIR"
-	echo ""
-}
-
-print_files () {
-	for i in ${FILES[@]}; do
-		echo $i
-	done
-}
-
-debug () {
-	echo "debug"
+function help() {
+	echo "Usage: dotfiles [Flag] [Command]"
+	echo
+	echo "Flag:"
+	echo "     [-h|--help]: display help information"
+	echo
+	echo "Command:"
+	echo "     update: copys config files from $HOMEDIR to $SRCDIR"
+	echo "     clean: removes files not found in config from $SRCDIR"
+	echo "     help: display help information"
 }
 
 case $1 in
-	"update")
+	"update") 
 		update
 		;;
 	"clean")
-		clean	
+		clean
 		;;
-	"print")
-		print_files
-		;;
-	"d")
-		debug
+	"help")
+		help
 		;;
 	"-h")
 		help
 		;;
 	"--help")
-		help	
+		help
 		;;
 	*)
-		echo "Comand was not recognized. Try 'dotfiles [-h|--help]'"
+		echo "[ERROR] Command was not recognized: $1"
 		help
 		;;
 esac
-
+#for f in ${SRCFILES[@]}; do
+#	echo $f
+#done

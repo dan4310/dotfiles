@@ -2,13 +2,10 @@
 Daniel Courtney's dotfiles repo.
 
 ## Install
-===Not yet implemented===
-
-Copys all linked files from this repo to `$SRCDIR`.
-Replace `$SRCDIR` with the value you used in the `dotfiles` script.
+Copies this repo to `~/.local/share/dotfiles` and the `dotfiles` script to `/usr/local/bin/dotfiles`.
 
 ```
-./dotfiles install
+make clean install
 ```
 
 ### Xorg
@@ -34,17 +31,17 @@ ln -s $SRCDIR/.config/zsh/zshrc $SRCDIR/.zshrc
 ln -s $SRCDIR/.config/shell/profile $SRCDIR/.zprofile
 ```
 
-
-## Update
-Copys all linked files from your `$SRCDIR` to this repo.
-
-```
-./dotfiles update
-```
-
-## Clean
-Removes any files/directories in this repo that are not linked.
+## Features
+### Update
+Copys all linked files from `~/` to `~/.local/share/dotfiles` that are listed in `~/.local/`.
 
 ```
-./dotfiles clean
+dotfiles update
+```
+
+### Clean
+Removes any files/directories not listed in `~/.local/share/dotfiles/config.txt` from `~/.local/share/dotfiles`.
+
+```
+dotfiles clean
 ```

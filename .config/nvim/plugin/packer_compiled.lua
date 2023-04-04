@@ -120,7 +120,6 @@ _G.packer_plugins = {
     url = "https://github.com/meuter/lualine-so-fancy.nvim"
   },
   ["lualine.nvim"] = {
-    config = { "\27LJ\2\n�\5\0\0\6\0\30\00016\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\3\0005\4\4\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\3=\3\v\0025\3\r\0004\4\3\0005\5\f\0>\5\1\4=\4\14\0034\4\3\0005\5\15\0>\5\1\0045\5\16\0>\5\2\4=\4\17\0034\4\3\0005\5\18\0>\5\1\4=\4\19\0034\4\5\0005\5\20\0>\5\1\0045\5\21\0>\5\2\0045\5\22\0>\5\3\0045\5\23\0>\5\4\4=\4\24\0034\4\3\0005\5\25\0>\5\1\4=\4\26\0034\4\3\0005\5\27\0>\5\1\4=\4\28\3=\3\29\2B\0\2\1K\0\1\0\rsections\14lualine_z\1\2\0\0\22fancy_lsp_servers\14lualine_y\1\2\1\0\19fancy_filetype\fts_icon\b\14lualine_x\1\2\0\0\19fancy_location\1\2\0\0\22fancy_searchcount\1\2\0\0\22fancy_diagnostics\1\2\0\0\16fancy_macro\14lualine_c\1\2\1\0\14fancy_cwd\20substitute_home\2\14lualine_b\1\2\0\0\15fancy_diff\1\2\0\0\17fancy_branch\14lualine_a\1\0\0\1\2\1\0\15fancy_mode\nwidth\3\3\foptions\1\0\0\frefresh\1\0\1\15statusline\3d\23section_separators\1\0\2\tleft\5\nright\5\25component_separators\1\0\2\tleft\b│\nright\b│\1\0\2\17globalstatus\2\ntheme\fonedark\nsetup\flualine\frequire\0" },
     loaded = true,
     path = "/home/daniel/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
@@ -193,10 +192,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n�\5\0\0\6\0\30\00016\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\n\0005\3\3\0005\4\4\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\3=\3\v\0025\3\r\0004\4\3\0005\5\f\0>\5\1\4=\4\14\0034\4\3\0005\5\15\0>\5\1\0045\5\16\0>\5\2\4=\4\17\0034\4\3\0005\5\18\0>\5\1\4=\4\19\0034\4\5\0005\5\20\0>\5\1\0045\5\21\0>\5\2\0045\5\22\0>\5\3\0045\5\23\0>\5\4\4=\4\24\0034\4\3\0005\5\25\0>\5\1\4=\4\26\0034\4\3\0005\5\27\0>\5\1\4=\4\28\3=\3\29\2B\0\2\1K\0\1\0\rsections\14lualine_z\1\2\0\0\22fancy_lsp_servers\14lualine_y\1\2\1\0\19fancy_filetype\fts_icon\b\14lualine_x\1\2\0\0\19fancy_location\1\2\0\0\22fancy_searchcount\1\2\0\0\22fancy_diagnostics\1\2\0\0\16fancy_macro\14lualine_c\1\2\1\0\14fancy_cwd\20substitute_home\2\14lualine_b\1\2\0\0\15fancy_diff\1\2\0\0\17fancy_branch\14lualine_a\1\0\0\1\2\1\0\15fancy_mode\nwidth\3\3\foptions\1\0\0\frefresh\1\0\1\15statusline\3d\23section_separators\1\0\2\tleft\5\nright\5\25component_separators\1\0\2\tleft\b│\nright\b│\1\0\2\17globalstatus\2\ntheme\fonedark\nsetup\flualine\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

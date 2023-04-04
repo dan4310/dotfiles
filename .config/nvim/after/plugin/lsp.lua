@@ -3,8 +3,14 @@ local lsp = require("lsp-zero")
 lsp.preset('recommended')
 
 lsp.ensure_installed({
+	'clangd',
 	'lua_ls',
 	'bashls',
+})
+
+
+lsp.configure('clangd', {
+	cmd = { "clangd", "-I/usr/include" }
 })
 
 local cmp = require('cmp')
@@ -35,5 +41,6 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
+
 
 lsp.setup()
