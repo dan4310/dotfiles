@@ -6,15 +6,11 @@ EXEC=/usr/local/bin/$(EXECNAME)
 DATADIR=~/.local/share/$(EXECNAME)
 CONFIG=config.txt
 
-$(DATADIR):
-	cp -r $(CWD) $(DATADIR)
-
-$(DATADIR)/$(CONFIG): $(DATADIR)
-	cp $(CONFIG) $(DATADIR)/.
-
-install: $(DATADIR)
-	echo $(DATADIR)/$(CONFIG)
+install: 
 	sudo cp $(CWD)/$(EXECNAME) $(EXEC)
+
+copy:
+	cp -r $(CWD) $(DATADIR)
 
 clean:
 	sudo rm -f $(EXEC) 

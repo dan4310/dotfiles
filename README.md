@@ -5,30 +5,39 @@ Daniel Courtney's dotfiles repo.
 Copies this repo to `~/.local/share/dotfiles` and the `dotfiles` script to `/usr/local/bin/dotfiles`.
 
 ```
-make clean install
+make clean install copy
 ```
 
-### Xorg
+Copies the dotfiles from `~/.local/share/dotfiles` to `~/`.
+
+```
+dotfiles install
+```
+
+### Set-Up
+Some steps you may want to take after installing these dotfiles to `~/`.
+
+#### Xorg
 You may want to link your `.xprofile` after installing.
 
 ```
-ln -s $SRCDIR/.config/x11/xprofile $SRCDIR/.xprofile
+ln -s ~/.config/x11/xprofile ~/.xprofile
 ```
 
-### Bash
+#### Bash
 You may want to link your `.bashrc` and `.bash_profile` after installing.
 
 ```
-ln -s $SRCDIR/.config/bash/bashrc $SRCDIR/.bashrc 
-ln -s $SRCDIR/.config/shell/profile $SRCDIR/.bash_profile
+ln -s ~/.config/bash/bashrc ~/.bashrc 
+ln -s ~/.config/shell/profile ~/.bash_profile
 ```
 
-### Zsh 
+#### Zsh 
 You may want to link your `.zshrc` and `.zprofile` after installing.
 
 ```
-ln -s $SRCDIR/.config/zsh/zshrc $SRCDIR/.zshrc 
-ln -s $SRCDIR/.config/shell/profile $SRCDIR/.zprofile
+ln -s ~/.config/zsh/zshrc ~/.zshrc 
+ln -s ~/.config/shell/profile ~/.zprofile
 ```
 
 ## Features
@@ -44,4 +53,11 @@ Removes any files/directories not listed in `~/.local/share/dotfiles/config.txt`
 
 ```
 dotfiles clean
+```
+
+### Install
+==Not Implemented Yet==
+
+```
+dotfiles install 
 ```
