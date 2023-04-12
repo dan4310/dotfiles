@@ -22,4 +22,5 @@ alias \
 	p="pacman" \
 	ll="ls -alh" \
 	lf="lfub" \
-	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport" 
+	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport" \
+	chat="chat -m $XDG_DATA_HOME/chat/ggml-alpaca-7b-q4.bin"

@@ -17,5 +17,5 @@ case $BLOCK_BUTTON in
 	2) $EDITOR "$0" ;; # Middle click
 esac
 
-[ "$num" != "0" ] &&
-	echo "$icon $num"
+#[ "$num" != "0" ] &&
+echo "$icon $num"
