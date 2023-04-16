@@ -4,7 +4,10 @@
 
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
 
-autostart="xcompmgr dunst"
+#xcompmgr -CcfF -I-.015 -O-.03 -D2 -t-1 -l-3 -r4.2 -o.5 &
+picom -b
+
+autostart="dunst"
 
 for program in $autostart; do 
 	pidof -x "$program" || "$program" &

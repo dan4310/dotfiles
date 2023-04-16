@@ -5,6 +5,7 @@
 .fehbg
 .config/ncmpcpp/config
 .local/bin/statusbar
+.config/picom
 .config/bash
 .config/git
 .config/lf
