@@ -40,7 +40,7 @@ function clean() {
 		files+=(${fs[@]})
 	done
 	
-	local check_files=$(find $SRCDIR '(' -not -name "dotfiles" ')' -a '(' -not -name README.md ')' -a '(' -not -name config.txt ')' -a '(' -not -path "\/*.git*" ')')
+	local check_files=$(find $SRCDIR '(' -not -name "dotfiles" ')' -a '(' -not -name README.md ')' -a '(' -not -name config.txt ')' -a '(' -not -path "\/*.git*" ')' -a '(' -not -name Makefile ')')
 	for f in ${check_files[@]}; do
 		if [[ ! ${files[@]} =~ $f && -e $f ]]; then
 			if [ -d $f ]; then
