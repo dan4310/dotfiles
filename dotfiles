@@ -54,6 +54,14 @@ function clean() {
 	done
 }
 
+function goto() {
+	cd "$SRCDIR"
+}
+
+function config() {
+	"$EDITOR" "$SRCDIR/config.txt"
+}
+
 function help() {
 	echo "Usage: dotfiles [Flag] [Command]"
 	echo
@@ -63,6 +71,8 @@ function help() {
 	echo "Command:"
 	echo "     update: copys config files from $HOMEDIR to $SRCDIR"
 	echo "     clean: removes files not found in config from $SRCDIR"
+	echo "     go: cd to $SRCDIR"
+	echo "     config: open config.txt with $EDITOR"
 	echo "     help: display help information"
 }
 
@@ -72,6 +82,12 @@ case $1 in
 		;;
 	"clean")
 		clean
+		;;
+	"go")
+		goto
+		;;
+	"config")
+		config
 		;;
 	"help")
 		help
