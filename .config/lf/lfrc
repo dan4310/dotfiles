@@ -7,6 +7,7 @@ set cleaner '~/.local/bin/lf-ueberzug/lf-ueberzug-cleaner'
 set previewer '~/.local/bin/lf-ueberzug/lf-ueberzug-previewer'
 set autoquit
 set cursorpreviewfmt "\033[7;2m"
+set info size:time
 
 # use enter for shell commands
 map <enter> shell
@@ -57,31 +58,56 @@ cmd open ${{
 }}
 
 # mkdir command. See wiki if you want it to select created dir
-map a :push %mkdir<space>
+# map a :push %mkdir<space>
+
+# create a file/folder
+cmd create ${{
+	cwd=$(pwd)
+	printf "Create a file.\n"
+	printf "$cwd/"
+	read ans 
+	if [ -f "$cwd/$ans" ]; then
+		printf "File already exists: $cwd/$ans\n"	
+		read -n 1 -s -r -p "Press any key to continue..."
+	elif [ -d "$cwd/$ans" ]; then
+		printf "Directory already exists: $cwd/$ans\n"	
+		read -n 1 -s -r -p "Press any key to continue..."
+	else 
+		length=${#ans}
+		((length--))
+		if [ "${ans:$length:1}" == "/" ]; then 
+			mkdir -p "$cwd/$ans"
+		else
+			mkdir -p $(dirname "$cwd/$ans") && touch "$cwd/$ans"
+		fi
+	fi
+}}
+
+map a create
 
 # define a custom 'rename' command without prompt for overwrite
 # cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 # map r push :rename<space>
 
 # make sure trash folder exists
-# %mkdir -p ~/.trash
+%mkdir -p ~/.local/share/Trash/lf/
 
 # move current file or selected files to trash folder
 # (also see 'man mv' for backup/overwrite options)
-cmd trash %set -f; mv $fx ~/.trash
+cmd trash %set -f; mv $fx ~/.local/share/Trash/lf
 
 # define a custom 'delete' command
-# cmd delete ${{
-#     set -f
-#     printf "$fx\n"
-#     printf "delete?[y/n]"
-#     read ans
-#     [ "$ans" = "y" ] && rm -rf $fx
-# }}
+cmd delete ${{
+    set -f
+    printf "$fx\n"
+    printf "delete?[y/n]"
+    read ans
+    [ "$ans" = "y" ] && rm -rf $fx
+}}
 
 # use '<delete>' key for either 'trash' or 'delete' command
-# map <delete> trash
-# map <delete> delete
+map <backspace2> trash
+map <backspace> delete
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
