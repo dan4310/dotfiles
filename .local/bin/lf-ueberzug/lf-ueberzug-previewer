@@ -39,6 +39,9 @@ case "$(basename "$file" | tr '[:upper:]' '[:lower:]')" in
 	preview "$thumbnail" "$@"
 	;;
 *.gpg) gpg -d -- "$file" ;;
+*.mp3|*.opus|*.wav|*.ogg) 
+	mediainfo "$file" || exit 1
+	;;
 *) bat --terminal-width "$(($4-2))" -f "$file" ;;
 esac
 return 127 # nonzero retcode required for lf previews to reload
