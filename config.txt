@@ -1,10 +1,7 @@
-.local/bin/vol
-.local/bin/open
-.local/bin/explore
-.local/bin/lfub
+.local/bin/lf-ueberzug
+.local/bin/statusbar
 .fehbg
 .config/ncmpcpp/config
-.local/bin/statusbar
 .config/bash
 .config/git
 .config/lf
@@ -19,3 +16,4 @@
 .config/bspwm
 .config/polybar
 .config/alacritty
+.config/rofi

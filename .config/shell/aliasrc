@@ -35,6 +35,21 @@ alias \
 	z="zathura" \
 	p="pacman" \
 	ll="ls -alh" \
-	lf="lfub" \
+	lf="lf-ueberzug" \
 	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport" \
 	chat="chat -m $XDG_DATA_HOME/chat/ggml-alpaca-7b-q4.bin"
+
+lfcd () {
+    tmp="$(mktemp)"
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    lf-ueberzug -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        command rm -f "$tmp"
+        if [ -d "$dir" ]; then
+            if [ "$dir" != "$(pwd)" ]; then
+                cd "$dir"
+            fi
+        fi
+    fi
+}

@@ -40,6 +40,9 @@ function zle-keymap-select () {
 }
 zle -N zle-keymap-select
 
+# Key Binds
+bindkey -s '^o' 'lfcd\n'
+
 PLUG_HL=/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 PLUG_SUG=/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 PLUG_POW=/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
