@@ -18,3 +18,4 @@
 .config/sxhkd
 .config/bspwm
 .config/polybar
+.config/alacritty
