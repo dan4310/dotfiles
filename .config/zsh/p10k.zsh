@@ -38,13 +38,14 @@
   autoload -Uz is-at-least && is-at-least 5.1 || return
 
   # Prompt colors.
-  local grey='242'
-  local red='#FF5C57'
-  local yellow='#F3F99D'
-  local blue='#57C7FF'
-  local magenta='#FF6AC1'
-  local cyan='#9AEDFE'
-  local white='#F1F1F0'
+  local grey='#5c6370'
+  local red='#e06c75'
+  local yellow='#d19a66'
+  local green='#98c379'
+  local blue='#61afef'
+  local magenta='#c678dd'
+  local cyan='#56b6c2'
+  local white='#e6efff'
 
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
@@ -106,14 +107,14 @@
   # Context format when root: user@host. The first part white, the rest grey.
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE="%F{$white}%n%f%F{$grey}@%m%f"
   # Context format when not root: user@host. The whole thing grey.
-  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{$grey}%n@%m%f"
+  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{$magenta}[%f%F{$blue}%n%F{$yellow}@%f%F{$cyan}%m%f%F{$magenta}]%f"
   # Don't show context unless root or in SSH.
-  typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_CONTENT_EXPANSION=
+  # typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_CONTENT_EXPANSION=
 
   # Show previous command duration only if it's >= 5s.
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=5
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
   # Don't show fractional seconds. Thus, 7s rather than 7.3s.
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=1
   # Duration format: 1d 2h 3m 4s.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
   # Yellow previous command duration.
@@ -139,9 +140,13 @@
   # When in detached HEAD state, show @commit where branch normally goes.
   typeset -g POWERLEVEL9K_VCS_COMMIT_ICON='@'
   # Don't show staged, unstaged, untracked indicators.
-  typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED}_ICON=
+  #typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED}_ICON=
+  typeset -g POWERLEVEL9K_VCS_UNSTAGED_ICON='*'
+  typeset -g POWERLEVEL9K_VCS_STAGED_ICON='+'
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
+
   # Show '*' when there are staged, unstaged or untracked files.
-  typeset -g POWERLEVEL9K_VCS_DIRTY_ICON='*'
+  #typeset -g POWERLEVEL9K_VCS_DIRTY_ICON='*'
   # Show '⇣' if local branch is behind remote.
   typeset -g POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=':⇣'
   # Show '⇡' if local branch is ahead of remote.
