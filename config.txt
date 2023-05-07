@@ -17,3 +17,5 @@
 .config/polybar
 .config/alacritty
 .config/rofi
+.config/python
+.config/npm

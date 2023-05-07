@@ -17,9 +17,10 @@ require('lualine').setup {
 			{ "fancy_diff" },
 		},
     	lualine_c = {
-    		{ "fancy_cwd", substitute_home = true }
+    		{ "fancy_cwd", substitute_home = true },
     	},
     	lualine_x = {
+			{ "filename" },
     		{ "fancy_macro" },
     		{ "fancy_diagnostics" },
     		{ "fancy_searchcount" },
