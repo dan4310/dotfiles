@@ -3,5 +3,5 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 require("daniel.packer")
+require("daniel.options")
 require("daniel.remap")
-require("daniel.set")

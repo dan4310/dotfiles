@@ -56,4 +56,22 @@ return require('packer').startup(function(use)
 			{ 'nvim-tree/nvim-web-devicons' }, -- Optional icons
 		}
 	}
+
+	use { 
+		'vimwiki/vimwiki',
+		config = function()
+    	    vim.g.vimwiki_list = {
+    	        {
+    	            path = '~/documents/wiki',
+    	            syntax = 'markdown',
+    	            ext = '.md',
+    	        }
+    	    }
+			vim.g.vimwiki_map_prefix = '<leader>n'
+    	end
+	}
+
+    use {
+    	"windwp/nvim-autopairs",
+    }
 end)

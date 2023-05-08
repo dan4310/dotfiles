@@ -1,4 +1,7 @@
-local lsp = require("lsp-zero")
+local status_ok, lsp = pcall(require, "lsp-zero")
+if not status_ok then
+    return
+end
 
 lsp.preset('recommended')
 
@@ -8,7 +11,11 @@ lsp.ensure_installed({
 	'bashls',
 })
 
-local cmp = require('cmp')
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+    return
+end
+
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
