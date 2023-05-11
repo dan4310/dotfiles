@@ -6,9 +6,6 @@
 -- ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
 -- ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
 --
--- File: config/options.lua
--- Description: General Neovim settings and configuration
--- Author: Kien Nguyen-Tuan <kiennt2609@gmail.com>
 local cmd = vim.cmd
 -- Set options (global/buffer/windows-scoped)
 local opt = vim.opt
@@ -21,6 +18,9 @@ g.mapleader = " "
 
 cmd([[
 	filetype plugin indent on
+]])
+cmd([[
+    set nocompatible
 ]])
 
 opt.backspace = {"eol", "start", "indent"} -- allow backspacing over everything in insert mode
@@ -65,6 +65,7 @@ opt.cmdheight = 0 -- more space in the neovim command line for displaying messag
 
 opt.mouse = "a" -- allow the mouse to be used in neovim
 opt.number = true -- set numbered lines
+opt.relativenumber = true
 opt.scrolloff = 18 -- minimal number of screen lines to keep above and below the cursor
 opt.sidescrolloff = 3 -- minimal number of screen columns to keep to the left and right (horizontal) of the cursor if wrap is `false`
 opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time

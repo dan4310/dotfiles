@@ -6,6 +6,9 @@ set spoolfile = +INBOX
 set postponed = +Drafts
 set record = +Sent
 
+set mail_check=90
+set timeout=15
+
 ## Send options.
 set smtp_url="smtps://dan4310:`pass show google/mutt`@smtp.gmail.com"
 set realname='Daniel Courtney'
