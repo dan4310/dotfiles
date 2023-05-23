@@ -1,9 +1,9 @@
 ## Receive options.
-set imap_user=user@gmail.com
+set imap_user=dan4310@gmail.com
 set imap_pass="`pass show google/mutt`"
 set folder = imaps://dan4310@imap.gmail.com/
 set spoolfile = +INBOX
-set postponed = +Drafts
+set postponed = +[Gmail]/Drafts
 set record = +Sent
 
 set mail_check=90

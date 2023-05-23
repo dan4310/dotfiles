@@ -7,18 +7,18 @@ set mail_check = 60
 set mbox_type=Maildir
 
 ## ACCOUNT1
-# source "~/.mutt/work"
+source personal
 # Here we use the $folder variable that has just been set in the sourced file.
 # We must set it right now otherwise the 'folder' variable will change in the next sourced file.
-# folder-hook $folder 'source ~/.mutt/work'
+folder-hook $folder 'source personal'
 
 ## ACCOUNT2
-source personal
-folder-hook 'dan4310@gmail.com' 'source personal'
+source danielmarkcourtney_gmail
+folder-hook $folder 'source danielmarkcourtney_gmail'
 
 ## Shortcuts
-macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.mutt/personal<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.mutt/work<enter><change-folder>!<enter>'
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/personal<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/danielmarkcourtney_gmail<enter><change-folder>!<enter>'
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 
 bind pager j next-line
