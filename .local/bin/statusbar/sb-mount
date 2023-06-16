@@ -1,0 +1,5 @@
+#!/bin/bash
+
+read ROOT_VAL <<< $(df | awk '{ if ($6 == "/") print $5; }')
+read HOME_VAL <<< $(df | awk '{ if ($6 == "/home") print $5; }')
+printf "%s" "/ $ROOT_VAL /home $HOME_VAL"

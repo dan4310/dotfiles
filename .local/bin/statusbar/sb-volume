@@ -1,13 +1,11 @@
 #!/bin/bash
 
-VOLUME=$(vol get)
-VOLUME=${VOLUME::-1}
-
+VOLUME=$(amixer sget Master | awk -F"[][%]" '/Left:/ { print $2 }')
 WIFIICON=󰕾
 
-ON=$(amixer get Master | awk -F" " '/Mono:/ { print $6 }')
+ON=$(amixer sget Master | awk -F"[][]" '/Left:/ { print $4 }')
 
-if [ $ON == "[off]" ]; then
+if [ $ON = "off" ]; then
 	WIFIICON=󰝟
 elif [ $VOLUME -lt 20 ]; then
 	WIFIICON=󰕿
