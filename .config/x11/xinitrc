@@ -8,7 +8,7 @@ else
 	. "$HOME/.xprofile"
 fi
 
-exec dwmblocks &
+dwmblocks &
 exec dwm
 
 # Terminate already running bar instances

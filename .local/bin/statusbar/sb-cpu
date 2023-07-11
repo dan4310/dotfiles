@@ -2,10 +2,10 @@
 icon=""
 temp=$(sensors -f | awk '/Package id 0:/ { print $4 }' | sed 's/+//')
 
-echo "$icon $temp"
-
 case $BUTTON in
 	1) notify-send "CPU usage" "$(ps axch -o cmd,%cpu --sort=-%cpu | head)" ;;
 	3) st -e htop ;;
 esac
+
+echo "$icon $temp"
 
