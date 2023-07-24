@@ -8,8 +8,8 @@ else
 	. "$HOME/.xprofile"
 fi
 
-dwmblocks &
-exec dwm
+exec dwm &
+dwmblocks
 
 # Terminate already running bar instances
 #killall -q polybar
