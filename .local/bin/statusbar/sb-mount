@@ -2,4 +2,5 @@
 
 read ROOT_VAL <<< $(df | awk '{ if ($6 == "/") print $5; }')
 read HOME_VAL <<< $(df | awk '{ if ($6 == "/home") print $5; }')
-printf "%s" "/ $ROOT_VAL /home $HOME_VAL"
+read MEDIA_VAL <<< $(df | awk '{ if ($6 == "/media") print $5; }')
+printf "/ %s /home %s /media %s" $ROOT_VAL $HOME_VAL $MEDIA_VAL

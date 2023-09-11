@@ -1,6 +1,7 @@
 .local/bin/lf-ueberzug
 .local/bin/statusbar
 .fehbg
+.vim/vimrc
 .config/ncmpcpp/config
 .config/bash
 .config/git

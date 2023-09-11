@@ -33,7 +33,6 @@ export PYTHONUSERBASE="$XDG_DATA_HOME/python"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_repl_history"
 
-[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
-
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg && exec startx "$XINITRC" >/dev/null 2>&1
 
 if [ -n "$BASH_ENV" ]; then . "$BASH_ENV"; fi
